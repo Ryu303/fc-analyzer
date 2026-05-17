@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --background: #040907;
+  --foreground: #f3f4f6;
+  --primary: #10b981;
+  --primary-glow: rgba(16, 185, 129, 0.15);
+  --accent: #22c55e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+}
+
+body {
+  background: radial-gradient(circle at 50% 0%, #081d14 0%, #030a07 60%, #010403 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  background: rgba(8, 16, 12, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel:hover {
+  border-color: rgba(34, 197, 94, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 197, 94, 0.05);
+}
+
+/* Neon glow classes */
+.text-neon-green {
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.2);
+}
+
+.text-neon-cyan {
+  text-shadow: 0 0 8px rgba(6, 182, 212, 0.6), 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.text-neon-red {
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.6), 0 0 20px rgba(239, 68, 68, 0.2);
+}
+
+.border-neon {
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020604;
+}
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Stadium pulse animation */
+@keyframes stadium-glow {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.05);
+  }
+}
+
+.stadium-bg-glow {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 400px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+  animation: stadium-glow 8s ease-in-out infinite;
+}
+
+/* Pulse keyframes for results */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.35);
+  }
+}
+
+.neon-pulse-green {
+  animation: neon-pulse 3s infinite;
+}
+
+@keyframes neon-pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.35);
+  }
+}
+
+.neon-pulse-red {
+  animation: neon-pulse-red 3s infinite;
+}
